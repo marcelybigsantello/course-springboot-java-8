@@ -1,18 +1,24 @@
 package com.mackenzie.course.entities;
 
 import java.io.Serializable;
-import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class User implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String name;
 	private String email;
 	private String phone;
 	private String password;
-	private List<Order> orders; 
 	
 	public User() {
 		
@@ -64,17 +70,6 @@ public class User implements Serializable{
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	
-	public List<Order> getOrders() {
-		return orders;
-	}
-
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", name=" + name + ",\n email=" + email + ", phone=" + phone + ",\n password=" + password
-				+ ",\n orders=" + orders + "]";
 	}
 
 	@Override
