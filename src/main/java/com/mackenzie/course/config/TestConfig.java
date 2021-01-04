@@ -10,10 +10,12 @@ import org.springframework.context.annotation.Profile;
 
 import com.mackenzie.course.entities.Category;
 import com.mackenzie.course.entities.Order;
+import com.mackenzie.course.entities.Product;
 import com.mackenzie.course.entities.User;
 import com.mackenzie.course.entities.enums.OrderStatus;
 import com.mackenzie.course.repositories.CategoryRepository;
 import com.mackenzie.course.repositories.OrderRepository;
+import com.mackenzie.course.repositories.ProductRepository;
 import com.mackenzie.course.repositories.UserRepository;
 
 @Configuration
@@ -28,6 +30,9 @@ public class TestConfig implements CommandLineRunner{
 	
 	@Autowired
 	private CategoryRepository categoryRepository;
+	
+	@Autowired
+	private ProductRepository productRepository;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -44,9 +49,17 @@ public class TestConfig implements CommandLineRunner{
 		Category c3 = new Category(null, "Clothes and fashion");
 		Category c4 = new Category(null, "Pets");
 		
+		Product p1 = new Product(null, "Laptop dell", "Laptop black 15HD 256 GB", 3756.00f, "");
+		Product p2 = new Product(null, "Smart TV", "Nulla eu imperdiet purus. Maecenas ante.", 2190.0f, "");
+		Product p3 = new Product(null, "Macbook Pro", "Nam eleifend maximus tortor, at mollis.", 1250.0f, "");
+		Product p4 = new Product(null, "PC Gamer", "Donec aliquet odio ac rhoncus cursus.", 1200.0f, "");
+		Product p5 = new Product(null, "Rails for Dummies", "Cras fringilla convallis sem vel faucibus.", 100.99f, "");
+		
 		userRepository.saveAll(Arrays.asList(u1, u2));
 		orderRepository.saveAll(Arrays.asList(o1, o2, o3, o4));
 		categoryRepository.saveAll(Arrays.asList(c1, c2, c3, c4));
+		productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
+		
 	}	
 	
 }
