@@ -12,6 +12,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mackenzie.course.entities.Category;
 import com.mackenzie.course.entities.Order;
 import com.mackenzie.course.entities.OrderItem;
+import com.mackenzie.course.entities.Payment;
 import com.mackenzie.course.entities.Product;
 import com.mackenzie.course.entities.User;
 import com.mackenzie.course.entities.enums.OrderStatus;
@@ -89,6 +90,11 @@ public class TestConfig implements CommandLineRunner{
 		OrderItem oi6 = new OrderItem(o5, p2, 1, p2.getPrice());
 		
 		orderItemRepository.saveAll(Arrays.asList(oi1, oi2, oi3, oi4, oi5, oi6));
+		
+		Payment pay1 = new Payment(null, Instant.parse("2019-06-20T21:53:07Z"), o1);
+		o1.setPayment(pay1);
+		
+		orderRepository.save(o1);
 	}	
 	
 }
