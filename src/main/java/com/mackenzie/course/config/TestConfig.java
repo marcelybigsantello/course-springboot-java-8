@@ -8,7 +8,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mackenzie.course.entities.Category;
 import com.mackenzie.course.entities.Order;
 import com.mackenzie.course.entities.OrderItem;
@@ -44,7 +43,7 @@ public class TestConfig implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		User u1 = new User(null, "Maria", "maria@gmail.com", "55555555", "123456");
-		User u2 = new User(null, "João", "joão.costa@gmail.com", "5454545", "abcdef");
+		User u2 = new User(null, "João Costa", "joão.scosta@gmail.com", "4502356", "abcdef");
 		User u3 = new User(null, "Marcely Biguzzi Santello", "marcely@hotmail.com.br", "123123123", "000000");
 		
 		Order o1 = new Order(null, Instant.parse("2019-06-20T19:53:07Z"), OrderStatus.PAID, u1);
