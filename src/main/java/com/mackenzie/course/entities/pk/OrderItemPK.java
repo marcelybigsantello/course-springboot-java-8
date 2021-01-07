@@ -1,7 +1,6 @@
 package com.mackenzie.course.entities.pk;
 
 import java.io.Serializable;
-import java.util.Set;
 
 import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
